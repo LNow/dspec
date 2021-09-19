@@ -8,6 +8,10 @@ export function describe(title: string, fn: () => void) {
   suite.addSuite(title, fn);
 }
 
+export function test(title: string, fn: () => void) {
+  suite.addTest(title, fn);
+}
+
 export function it(title: string, fn: () => void) {
   suite.addTest(title, fn);
 }
@@ -39,6 +43,16 @@ export namespace describe {
 
   export function only(title: string, fn: () => void) {
     suite.addOnlySuite(title, fn);
+  }
+}
+
+export namespace test {
+  export function skip(title: string, fn: () => void) {
+    suite.addSkipTest(title, fn);
+  }
+
+  export function only(title: string, fn: () => void) {
+    suite.addOnlyTest(title, fn);
   }
 }
 
